@@ -5,7 +5,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 
+
 function App() {
+  
   return (
     <BrowserRouter>
       <Routes>

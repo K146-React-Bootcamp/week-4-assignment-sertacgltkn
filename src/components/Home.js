@@ -2,11 +2,12 @@ import React from "react";
 import Navbar from "../containers/Navbar";
 import "./Home.css";
 
+
 function Home() {
   return (
     <div className="Home">
       <Navbar />
-
+        <h1>Farklı BİR URL GİRİLİRSE 404 NOT FOUND SAYFASI AÇILACAK</h1>
       <h5>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit,
         similique a nisi deserunt voluptas suscipit ipsa accusantium molestiae

@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+<h1 style="color:white; font-weight:700"> REACT CLASS COMPONENTS  <h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Class Component Nedir ? Class Componentler Yerini Functional Componentlere Nasıl ve Ne Zaman Bıraktı ?**
 
-## Available Scripts
+ <p>  İki adet component tanımlama biçimi vardır. Bunlardan biri de class component'tir. Class component'ler Şubat 2019'da React Hook'lar çıkana kadar kullanılan component yapısıdır. Class componentler bu gelişmeden önce veri geçişini sağlayabilen tek yapılardı. Yani Functional Components'lerde veri geçişi sağlanamıyordu. (Stateless ve Stateful) React Hook'ların v16.8 ile birlikte hayatımıza girmesiyle birlikte Functional Component'ler daha genel şekilde kullanılmaya başlanmıştır. Eski projelerde halen kullanılan Class Component'ler güncelliğini yitirmek durumunda kalmıştır. <p>
+<p>Ayrıca Functional Component'lerde daha az kod yazılarak işlemler görülebilmektedir.  <p>
 
-In the project directory, you can run:
+### **Class Component Örneği**
 
-### `npm start`
+```javascript
+import React, { Component } from 'react';
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Merhaba Dünya</h1>
+      </div>
+    );
+  }
+}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+export default App;
+```
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Functional Component Örneği**
 
-### `npm run build`
+```javascript
+import React from 'react';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const App = () => {
+  return (
+    <div>
+      <h1>Merhaba Dünya</h1>
+    </div>
+  );
+};
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default App;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Lifecycle Methodları**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    | constructor | Component'in oluşturulmasında ilk çalışan methoddur. |
+    | render | Component'in render edilmesi için çalışan methoddur. |
+    | componentDidMount | Component'in render edilmesinden sonra çalışan methoddur. |
+    | componentDidUpdate | Component'in güncellenmesi durumunda çalışan methoddur. |
+    | componentWillUnmount | Component'in kaldırılması durumunda çalışan methoddur. |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Constructor
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
 
-## Learn More
+#### Render
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    render() {
+        return (
+            <div>
+                <h1>{this.state.count}</h1>
+                <button onClick={this.increment}>Arttır</button>
+            </div>
+        );
+    }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Component Did Mount
 
-### Code Splitting
+```javascript
+componentDidMount() {
+    //component mount edildikten sonra yapılacak işlemler
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Component Did Update
 
-### Analyzing the Bundle Size
+```javascript
+componentDidUpdate(prevProps, prevState) {
+    //component update edildikten sonra yapılacak işlemler
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Component Will Unmount
 
-### Making a Progressive Web App
+```javascript
+componentWillUnmount() {
+    //component unmount edildikten sonra yapılacak işlemler
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Kaynaklar
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React Class Component Nedir?](<https://innovance.com.tr/react-hookkanca-gecisi/#:~:text=React%20ekosisteminde%20olanların%20bildiği%20üzere,kancalar(hooks)%20hayatımıza%20girdi.>)
+- [React Class Component vs Function Component](https://www.youtube.com/watch?v=2Pi_YwD6PbU&ab_channel=SOSYALBİLİŞİM)
+- [React Lifecycle Methods](https://www.w3schools.com/react/react_lifecycle.asp#:~:text=Each%20component%20in%20React%20has,Mounting%2C%20Updating%2C%20and%20Unmounting.)
